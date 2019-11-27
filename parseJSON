@@ -1,0 +1,26 @@
+#!/usr/bin/env node
+
+function readStdin() {
+  let stdin = process.stdin,
+    inputChunks = [];
+  return new Promise(function(resolve){
+    stdin.resume();
+    stdin.setEncoding('utf8');
+
+    stdin.on('data', function (chunk) {
+      inputChunks.push(chunk);
+    });
+
+    stdin.on('end', function () {
+      resolve(inputChunks.join("")); 
+    });  
+  });
+}
+
+async function parse() {
+  let data = await readStdin();
+  let obj = JSON.parse(data);
+  console.log(JSON.stringify(obj, null, 2));
+}
+
+parse();

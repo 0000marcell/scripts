@@ -1,0 +1,7 @@
+#!/usr/bin/bash
+
+if [ -z $2 ]; then
+  google-chrome-stable https://www.figma.com/files/search/$1
+else
+  chromeapp https://www.figma.com/files/search/$1
+fi

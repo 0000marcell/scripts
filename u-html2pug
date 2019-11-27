@@ -1,0 +1,3 @@
+#!/usr/bin/bash
+
+xclip -o | html2pug | xclip -selection clipboard

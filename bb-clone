@@ -1,0 +1,3 @@
+#!/usr/bin/bash
+
+git clone ssh://____marcell@bitbucket.org/original-io/$1.git

@@ -1,0 +1,8 @@
+#!/usr/bin/bash
+
+CVERSION=$(upversion -o)
+git flow release start $CVERSION
+upversion
+git add --all
+git commit -m $CVERSION
+git flow release finish $CVERSION 

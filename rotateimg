@@ -1,0 +1,4 @@
+#!/usr/bin/bash
+
+# 1 file 2 -90 3 final file
+convert  $1 -rotate $2 $3

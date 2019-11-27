@@ -1,0 +1,6 @@
+#!/usr/bin/bash
+
+FILE=$(find . -name "*_variables.scss*" | grep -i base | head -1)
+SELECTED=$(cat $FILE | grep -i $1 | dmenu)
+RESULT=$(echo $SELECTED | awk '// {print $1}')
+echo $RESULT | xclip -selection clipboard

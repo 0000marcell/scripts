@@ -1,0 +1,5 @@
+#!/usr/bin/bash
+
+echo $GITHUB_USER
+echo $GITHUB_TOKEN
+curl -u "$GITHUB_USER:$GITHUB_TOKEN" https://api.github.com/user/repos -d '{"name":"'$1'"}'

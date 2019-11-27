@@ -1,0 +1,3 @@
+#!/usr/bin/bash
+
+sed -i 's/;/ !important;/g' $1

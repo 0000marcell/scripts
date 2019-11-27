@@ -1,0 +1,5 @@
+#!/usr/bin/bash
+
+rm -rf ~/tmp-dir
+mkdir ~/tmp-dir
+ls -t ~/Downloads/*.png | head -$1 | xargs -i cp {} ~/tmp-dir 

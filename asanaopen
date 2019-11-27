@@ -1,0 +1,5 @@
+#!/usr/bin/bash
+
+SELECTION=$(asana-bot mt | dmenu -i -l 15)
+ADDRESS=$(echo $SELECTION | awk '// {print $1}')
+google-chrome-stable $ADDRESS

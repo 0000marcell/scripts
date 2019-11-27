@@ -1,0 +1,3 @@
+#!/usr/bin/bash
+
+convert -density 1200 -resize 40x40 -background none $1 $2 

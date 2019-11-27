@@ -1,0 +1,5 @@
+#!/usr/bin/bash
+
+rm -rf ~/diff
+git status | awk '/modified:/ { print $2 }' | xargs -i git diff {} >> ~/diff
+cat ~/diff

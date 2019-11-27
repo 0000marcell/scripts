@@ -1,0 +1,6 @@
+#!/usr/bin/bash
+
+CHOME="$(echo ~/)"
+CPWD="$(pwd)"
+rm -rf ./node_modules/rex-cli-store
+ln -s $CHOME/ghp/rex-cli-store/ $CPWD/node_modules

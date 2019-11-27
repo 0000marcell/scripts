@@ -1,0 +1,3 @@
+#!/usr/bin/bash
+
+chromeapp https://open.spotify.com/collection/playlists

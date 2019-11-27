@@ -1,0 +1,4 @@
+#!/usr/bin/bash
+
+xclip -o | sed 's/^/./g' | sed 's/ /./g' | xclip -selection clipboard
+notify-send "clipboard classified!"

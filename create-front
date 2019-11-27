@@ -1,0 +1,16 @@
+#!/usr/bin/node
+const fs = require('fs');
+
+let folderName = process.argv[2];
+if(!folderName) {
+  console.error('you need to pass the name of the folder!');
+  return;
+}
+
+console.log('gonna create folder: ', folderName);
+fs.mkdirSync(`./${folderName}`);
+fs.mkdirSync(`./${folderName}/css`);
+fs.mkdirSync(`./${folderName}/js`);
+fs.writeFileSync(`./${folderName}/js/index.js`);
+fs.writeFileSync(`./${folderName}/css/index.css`);
+fs.writeFileSync(`./${folderName}/index.html`);

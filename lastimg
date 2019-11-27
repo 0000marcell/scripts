@@ -1,0 +1,3 @@
+#!/usr/bin/bash
+
+echo ~/Downloads/$(ls -t ~/Downloads/ | grep png | head -1)

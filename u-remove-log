@@ -1,0 +1,5 @@
+#!/usr/bin/bash
+
+for i in $(grep -rli 'console.log' ./src); do
+  sed -i 's/.*console.log.*//g' $i
+done

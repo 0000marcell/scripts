@@ -1,0 +1,4 @@
+#!/usr/bin/bash
+
+OPTS=$(cat ~/member | awk '// {print $1}' | dmenu -i -l 15)
+cat ~/member | awk '/^'$OPTS'/ {print $2}' | xclip -selection clipboard

@@ -1,0 +1,7 @@
+#!/usr/bin/bash
+
+i3-msg workspace 1
+nohup st
+i3-msg workspace 2
+nohup st
+nohup st

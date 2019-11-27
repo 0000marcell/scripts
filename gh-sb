@@ -1,0 +1,5 @@
+#!/usr/bin/bash
+
+SELECTION=$(git branch | dmenu -i -l 30)
+git checkout $SELECTION
+

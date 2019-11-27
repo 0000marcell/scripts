@@ -1,0 +1,8 @@
+#!/usr/bin/bash
+
+mkdir ~/ghp/test-html
+mkdir ~/ghp/test-html/css
+mkdir ~/ghp/test-html/js
+touch ~/ghp/test-html/index.html
+touch ~/ghp/test-html/css/index.css
+touch ~/ghp/test-html/js/index.js

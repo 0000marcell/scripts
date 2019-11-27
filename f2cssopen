@@ -1,0 +1,3 @@
+#!/usr/bin/bash
+
+cat figmaconfig | awk '/'$1'/ { print $2 }' | xargs -i google-chrome-stable https://www.figma.com/file/{}

@@ -1,0 +1,5 @@
+#!/usr/bin/bash
+
+CURRENT=$(git branch | grep \* | tr --delete '\* ' | sed 's/feature\/workflowy-//g' | sed 's/-/\//g' )
+
+$BROWSER https://workflowy.com/#/$CURRENT

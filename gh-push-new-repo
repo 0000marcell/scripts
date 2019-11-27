@@ -1,0 +1,8 @@
+#!/usr/bin/bash
+
+echo "# $1" >> README.md
+git init
+git add --all
+git commit -m "first commit"	
+git remote add origin git@github.com:0000marcell/$1.git
+git push -u origin master

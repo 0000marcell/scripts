@@ -1,0 +1,4 @@
+#!/usr/bin/bash
+# example: u-find-res src ./src/pug/subtemplates/_footer-checkout.pug
+
+sed -n 's/.*'$1'="\([^"]*\).*/\1/p' $2

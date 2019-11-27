@@ -1,0 +1,11 @@
+#!/usr/bin/bash
+
+if [ -z $2 ]; then
+ 2=2 
+fi
+
+if [ -z $3 ]; then
+  pageres [ $1 1366x768 360x720 ] -d $2 
+else
+  pageres [ $1 1366x768 360x720 ] -d $2 --cookie "$3"
+fi

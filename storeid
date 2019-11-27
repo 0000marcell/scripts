@@ -1,0 +1,3 @@
+#!/usr/bin/bash
+
+grep -ri 'STORE_ID' $1config/variables.js | awk '// {print $2}' | sed 's/^"\(.*\)".*/\1/'

@@ -1,0 +1,9 @@
+#!/usr/bin/bash
+
+MAJOR=$(projectversion | awk '{split($0,a,"."); print a[1]}')
+MINOR=$(projectversion | awk '{split($0,a,"."); print a[2]}')
+PATCH=$(projectversion | awk '{split($0,a,"."); print a[3]}')
+echo $MAJOR $MINOR $PATCH
+NPATCH=$(calc $PATCH - 1)
+echo $MAJOR.$MINOR.$NPATCH
+bump $MAJOR.$MINOR.$NPATCH

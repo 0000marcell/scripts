@@ -1,0 +1,11 @@
+#!/usr/bin/bash
+#                                           _     
+# _ __   __ _ ___ _____      _____  _ __ __| |___ 
+# | '_ \ / _` / __/ __\ \ /\ / / _ \| '__/ _` / __|
+# | |_) | (_| \__ \__ \\ V  V / (_) | | | (_| \__ \
+# | .__/ \__,_|___/___/ \_/\_/ \___/|_|  \__,_|___/
+# |_|                                              
+
+OPTS=$(ls ~/ghp/.pa | dmenu -i)
+SELECTION=$(ls ~/ghp/.pa/$OPTS | dmenu -i)
+cat ~/ghp/.pa/$OPTS/$SELECTION | xclip -selection clipboard

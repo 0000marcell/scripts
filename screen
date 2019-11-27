@@ -1,0 +1,5 @@
+#!/usr/bin/bash
+
+OPTS=$(ls ~/.screenlayout/)
+SELECTION=$(echo -e "$OPTS" | dmenu)
+bash ~/.screenlayout/$SELECTION

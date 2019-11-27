@@ -1,0 +1,4 @@
+#!/usr/bin/bash
+
+SELECTION=$(ls $1 | dmenu -l 15)
+dragon -a -x "$1$SELECTION"

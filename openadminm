@@ -1,0 +1,4 @@
+#/usr/bin/bash
+
+ID=$(ls -d $p/*/ | xargs -i storeid {} 2> /dev/null | dmenu -l 15)
+google-chrome-stable https://$ID.vtexcommercestable.com.br/admin/a

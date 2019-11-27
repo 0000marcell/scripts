@@ -1,0 +1,3 @@
+#!/usr/bin/bash
+
+compare -compose src $1 $2 result.png

@@ -1,0 +1,10 @@
+#!/usr/bin/bash
+
+LAYOUT=$(setxkbmap -query | grep layout | sed 's/layout:     //g')
+if [ ${LAYOUT} = us ]; then
+  notify-send "keyboard layout changed to BR"
+  setxkbmap br
+else
+  notify-send "keyboard layout changed to US"
+  setxkbmap us
+fi

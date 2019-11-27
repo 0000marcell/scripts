@@ -1,0 +1,12 @@
+#!/usr/bin/bash
+
+# easy way to make files public in bitbucket
+
+CURRENT=$(pwd)
+cp $1 ~/ghp/public-files/$1
+cd ~/ghp/public-files/
+git pull
+git add --all
+git commit -m "new file $1 added"
+git push 
+cd $CURRENT

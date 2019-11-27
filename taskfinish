@@ -1,0 +1,13 @@
+#!/usr/bin/bash
+
+git add --all
+git commit -m "$1"
+OUTPUT=$(gh-current-to-remote)
+PR=$(echo $OUTPUT | grep pull-request | awk '// { print $2}')
+
+if [ -z "$PR" ]; then
+  echo "Everything up to date"
+  exit 0
+fi
+
+google-chrome-stable "$PR"

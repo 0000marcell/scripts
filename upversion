@@ -1,0 +1,14 @@
+#!/usr/bin/bash
+
+MAJOR=$(projectversion | awk '{split($0,a,"."); print a[1]}')
+MINOR=$(projectversion | awk '{split($0,a,"."); print a[2]}')
+PATCH=$(projectversion | awk '{split($0,a,"."); print a[3]}')
+NPATCH=$(calc $PATCH + 1)
+
+if [ $1 == '-o' ]; then
+  echo $MAJOR.$MINOR.$NPATCH
+else
+  echo $MAJOR.$MINOR.$PATCH
+  echo $MAJOR.$MINOR.$NPATCH
+  bump $MAJOR.$MINOR.$NPATCH
+fi

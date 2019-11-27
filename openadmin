@@ -1,0 +1,10 @@
+#!/usr/bin/bash
+
+if [ -z $1 ]; then
+  ID=$(grep -ri 'STORE_ID' ./config/variables.js | awk '// {print $2}' | sed 's/^"\(.*\)".*/\1/')
+else
+  ID=$1
+fi
+
+google-chrome-stable https://$ID.vtexcommercestable.com.br/admin/a
+

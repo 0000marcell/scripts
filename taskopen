@@ -1,0 +1,14 @@
+#!/usr/bin/bash
+
+CURRENT=$(git branch | grep \* | tr --delete '\* ' | sed 's/feature\/asana-//g' | sed 's/-/\//g' )
+
+
+echo $CURRENT
+
+if [[ $CURRENT == *"/"* ]]; then
+  $BROWSER https://app.asana.com/0/$CURRENT/f
+else
+  echo https://app.asana.com/0/0/$CURRENT/f
+  $BROWSER https://app.asana.com/0/0/$CURRENT/f
+fi
+

@@ -1,0 +1,4 @@
+#!/usr/bin/bash
+
+chromeapp "https://app.asana.com/0/658009090531242/list"
+chromeapp "https://workflowy.com/#/17ed7460ed62"
