@@ -1,0 +1,8 @@
+#/usr/bin/bash
+
+PROJECTS=$(ls -d $p/*/)
+REXPROJECTS=$(ls -d $p/*/ | xargs -i cat {}/package.json 2> /dev/null | awk '/\"store\":/ { print $2}' | tr -d '"' | tr -d ',')
+OLDPROJECTS=$(ls -d $p/*/ | xargs -i storeid {} 2> /dev/null)
+ALLPROJECTS=( "${REXPROJECTS[@]}" "${OLDPROJECTS[@]}" )
+ID=$(echo ${ALLPROJECTS[@]} | tr " " "\n" | dmenu -l 15)
+google-chrome-stable https://$ID.vtexcommercestable.com.br/admin/a

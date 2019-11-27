@@ -1,0 +1,4 @@
+#!/usr/bin/bash
+
+SELECTION=$(git branch | tr -d '\*' | tr -d ' ' | dmenu -l 15)
+git merge $SELECTION
