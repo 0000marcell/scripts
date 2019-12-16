@@ -1,3 +1,7 @@
 #!/usr/bin/bash
 
-grep -ri 'STORE_ID' $1config/variables.js | awk '// {print $2}' | sed 's/^"\(.*\)".*/\1/'
+if [ ! -z "$(grep -ri 'storeId' $1package.json)" ]; then
+  grep -ri 'storeId' $1package.json | awk '// { print $2 }' | tr -d '"' | tr -d ','
+else
+  grep -ri 'STORE_ID' $1config/variables.js | awk '// {print $2}' | sed 's/^"\(.*\)".*/\1/'
+fi

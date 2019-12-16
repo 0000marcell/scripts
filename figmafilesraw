@@ -1,0 +1,13 @@
+#!/usr/bin/bash
+
+CFILES=$(curl -s -H "X-FIGMA-TOKEN: $FIGMA_TOKEN" "https://api.figma.com/v1/projects/$1/files" | parseJSON)
+#echo "$CFILES"
+CKEYS=$(echo "$CFILES" | grep -i '"key":' | sed 's/\<key\>//g' | tr -d '":, ')
+CKEYS=($CKEYS)
+CFILES=$(echo "$CFILES" | grep -i '"name":' | sed 's/\<name\>//g' | tr -d '":, ')
+CFILES=($CFILES)
+CDATA=""
+for i in "${!CKEYS[@]}"; do 
+  CDATA+="${CFILES[$(expr $i + 1)]} ${CKEYS[$i]}\n"
+done
+echo -e "$CDATA"

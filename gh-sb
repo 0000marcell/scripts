@@ -1,5 +1,5 @@
 #!/usr/bin/bash
 
-SELECTION=$(git branch | dmenu -i -l 30)
+SELECTION=$(git branch | percol)
 git checkout $SELECTION
 

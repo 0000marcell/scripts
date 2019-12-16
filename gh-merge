@@ -1,4 +1,4 @@
 #!/usr/bin/bash
 
-SELECTION=$(git branch | tr -d '\*' | tr -d ' ' | dmenu -l 15)
+SELECTION=$(git branch | tr -d '\*' | tr -d ' ' | percol)
 git merge $SELECTION

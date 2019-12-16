@@ -1,4 +1,4 @@
 #!/usr/bin/bash
 
-CVSELECTION=$(ls $p | grep rex-store | dmenu -l 15)
+CVSELECTION=$(ls $p | grep rex-store | percol)
 cd $p/$CVSELECTION

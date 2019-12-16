@@ -1,3 +1,4 @@
 #!/usr/bin/bash
 
-google-chrome-stable https://$1.vtexcommercestable.com.br/admin/portal/#/sites
+CSELECTION=$(chooseadmin)
+google-chrome-stable https://$CSELECTION.vtexcommercestable.com.br/admin/portal/#/sites

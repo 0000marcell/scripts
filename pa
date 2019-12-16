@@ -6,6 +6,6 @@
 # | .__/ \__,_|___/___/ \_/\_/ \___/|_|  \__,_|___/
 # |_|                                              
 
-OPTS=$(ls ~/ghp/.pa | dmenu -i)
+OPTS=$(ls ~/ghp/.pa | percol)
 SELECTION=$(ls ~/ghp/.pa/$OPTS | dmenu -i)
 cat ~/ghp/.pa/$OPTS/$SELECTION | xclip -selection clipboard

@@ -1,0 +1,5 @@
+#!/usr/bin/bash
+
+CSELECTION=$(figmafiles)
+CID=$(echo $CSELECTION | awk '// { print $2 }')
+$BROWSER https://www.figma.com/file/$CID

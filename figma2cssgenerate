@@ -1,0 +1,38 @@
+#!/usr/bin/bash
+
+
+# run figmaconfig with percol menu to choose the page
+TPAGE=""
+if [ -z $1 ]; then
+  TPAGE=$(cat ./figmaconfig | percol) 
+  TPAGE=$(echo $TPAGE | awk '// {print $1}')
+else
+  TPAGE=$1
+fi
+
+mapfile -t IDS < ./figmaconfig
+
+for i in "${IDS[@]}"; do 
+  PAGE=$(echo $i | awk '// {print $1}')
+  if [ $PAGE == "$TPAGE" ]; then
+    FILE_PATH=$(echo $i | awk '// {print $3}')
+    ID=$(echo $i | awk '// {print $2}')
+    echo "File Id ---> "$ID
+    ./figmadata $ID
+    rm -rf ./tmp.scss
+    cat ./figma/DATA | figmafind -t COMPONENT -n page-layout | figmafind -t GROUP -n Common | figma2css >> ./tmp.scss
+    echo "Common -> $FILE_PATH"
+    CPAGES=$(cat ./figma/DATA | figmafind -t COMPONENT -n page-layout | 
+      figmafind -t GROUP -n Content | findinjson -k "document" | 
+      findinjson -k "children" | findinjson -k "name" |
+      awk '/name/ { print $2 }' | tr -d '",')
+    CPAGES=($CPAGES)
+    for i in "${CPAGES[@]}"; do
+      CITEM=$(echo $i | tr -d '[:space:]')
+      #cat ./figma/DATA | figmafind -t COMPONENT -n page-layout | figmafind -t GROUP -n Content | figmafind -t GROUP -n $CITEM | figma2css >> ./tmp.scss
+      echo "$CITEM -> $FILE_PATH"
+    done
+  fi
+done
+
+#cat ./tmp.scss > $FILE_PATH

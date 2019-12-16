@@ -1,8 +1,9 @@
 #!/usr/bin/bash
 
-WORKSPACE=$(asana-bot ws | dmenu -i -l 15)
+WORKSPACE=$(asana-bot ws | percol)
 WORKSPACE=$(echo $WORKSPACE | awk '// {print $1}')
-SELECTION=$(asana-bot mt -w $WORKSPACE | dmenu -i -l 15)
-TASKID=$(echo $SELECTION | sed 's/https:\/\/app.asana.com\/0\/0\///g' | sed 's/\/f//')
-echo $TASKID
-task-init $TASKID
+SELECTION=$(asana-bot mt -w $WORKSPACE | percol)
+echo $SELECTION
+#TASKID=$(echo $SELECTION | sed 's/https:\/\/app.asana.com\/0\/0\///g' | sed 's/\/f//')
+#echo $TASKID
+#task-init $TASKID

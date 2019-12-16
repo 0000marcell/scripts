@@ -1,8 +1,12 @@
 #!/usr/bin/bash
 
-echo "# $1" >> README.md
+CCPATH=$(pwd | sed 's/\// /g')
+CCPATH=($CCPATH)
+CFOLDERNAME="${CCPATH[-1]}"
+CFOLDERNAME=$( echo $CFOLDERNAME | tr -d ' ')
+echo "# $CFOLDERNAME" >> README.md
 git init
 git add --all
 git commit -m "first commit"	
-git remote add origin git@github.com:0000marcell/$1.git
+git remote add origin git@github.com:0000marcell/$CFOLDERNAME.git
 git push -u origin master

@@ -1,0 +1,7 @@
+#!/usr/bin/bash
+
+CSELECTION=$(figmafiles)
+CID=$(echo $CSELECTION | awk '// { print $2 }')
+echo "Write destination file path, './tmp.css' is the default"
+read CFILEPATH
+echo "$CSELECTION $CFILEPATH" >> ./figmaconfig

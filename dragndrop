@@ -1,4 +1,4 @@
 #!/usr/bin/bash
 
-SELECTION=$(ls $1 | dmenu -l 15)
+SELECTION=$(ls $1 | percol)
 dragon -a -x "$1$SELECTION"

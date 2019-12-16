@@ -1,5 +1,5 @@
 #!/usr/bin/bash
 
-SELECTION=$(asana-bot mt | dmenu -i -l 15)
+SELECTION=$(asana-bot mt | percol)
 ADDRESS=$(echo $SELECTION | awk '// {print $1}')
 google-chrome-stable $ADDRESS

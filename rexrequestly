@@ -1,0 +1,13 @@
+#!/usr/bin/bash
+
+if [ -z "$1" ]; then
+  echo "You need to pass the name of the page"
+  exit 0
+fi
+
+if [ -z "$2" ]; then
+  rex start --page=$1 --writetodisk & reload -p 4200 -d ./build && fg
+else
+  rex start --page=$1 --writetodisk & reload -p $2 -d ./build && fg
+fi
+

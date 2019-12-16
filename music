@@ -6,6 +6,6 @@
 # |_|  |_|\___/|____/___\____|
  
 
-OPTS=$(ls ~/music | dmenu -i -l 30)
-SELECTION=$(cat ~/music/$OPTS | dmenu -i -l 30)
+OPTS=$(ls ~/music | percol)
+SELECTION=$(cat ~/music/$OPTS | percol)
 tizonia --spotify-album "$SELECTION"

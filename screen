@@ -1,5 +1,5 @@
 #!/usr/bin/bash
 
 OPTS=$(ls ~/.screenlayout/)
-SELECTION=$(echo -e "$OPTS" | dmenu)
+SELECTION=$(echo -e "$OPTS" | percol)
 bash ~/.screenlayout/$SELECTION

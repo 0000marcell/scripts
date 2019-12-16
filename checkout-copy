@@ -1,4 +1,4 @@
 #!/usr/bin/bash
-SELECTION=$(ls ./dist/checkout | dmenu)
+SELECTION=$(ls ./dist/checkout | percol)
 cat ./dist/checkout/$SELECTION | xclip -selection clipboard
 

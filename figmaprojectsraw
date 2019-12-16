@@ -1,0 +1,13 @@
+#!/usr/bin/bash
+
+JPROJECTS=$(curl -s -H "X-FIGMA-TOKEN: $FIGMA_TOKEN" "https://api.figma.com/v1/teams/$FIGMA_TEAM/projects" | parseJSON)
+CIDS=$(echo "$JPROJECTS" | grep -i '"id"' | sed 's/\<id\>//g' | tr -d '"' | tr -d ':' | tr -d ' ' | tr -d ',')
+CNAMES=$(echo "$JPROJECTS" | grep -i name | sed 's/\<name\>//g' | tr -d '"' | tr -d ':' | tr -d ' ' | tr -d ',')
+CNAMES=($CNAMES)
+CIDS=($CIDS)
+CDATA=""
+for i in "${!CIDS[@]}"; do 
+  CNINDEX=$(expr $i + 1)
+  CDATA+="${CNAMES[$CNINDEX]} ${CIDS[$i]}\n"
+done
+echo -e "$CDATA"

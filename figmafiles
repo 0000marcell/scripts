@@ -1,0 +1,6 @@
+#!/usr/bin/bash
+
+SPROJECT=$(figmaprojectsraw | percol)
+SPROJECT=$(echo $SPROJECT | awk '// { print $2 }')
+SRESULT=$(figmafilesraw $SPROJECT | percol)
+echo -e "$SRESULT"

@@ -1,0 +1,3 @@
+#!/usr/bin/bash
+
+ls -d $p/*/ | xargs -i storeid {} 2> /dev/null | percol
