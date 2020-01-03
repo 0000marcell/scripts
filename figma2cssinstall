@@ -1,5 +1,9 @@
 #!/usr/bin/bash
 
+#D figma2cssinstall
+#D based on the project that the user chooses writes the figmaconfig file 
+#D with the name of the keys used in each page and the destination path
+
 CSELECTION=$(figmafiles)
 CID=$(echo $CSELECTION | awk '// { print $2 }')
 echo "Write destination file path, './tmp.css' is the default"

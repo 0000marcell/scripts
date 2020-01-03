@@ -1,0 +1,12 @@
+#!/usr/bin/bash
+
+if [ -z "$1" ]; then
+  echo "pass the project and task id"
+  exit 0
+fi
+
+BRANCH=$(echo $1 | sed 's/\//-/g')
+
+echo $BRANCH
+
+git flow feature start $BRANCH

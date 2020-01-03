@@ -1,5 +1,8 @@
 #!/usr/bin/bash
 
+#D asanaopen
+#D Open a asana task
+
 SELECTION=$(asana-bot mt | percol)
 ADDRESS=$(echo $SELECTION | awk '// {print $1}')
 google-chrome-stable $ADDRESS

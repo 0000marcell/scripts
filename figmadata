@@ -1,0 +1,28 @@
+#!/usr/bin/bash
+
+#D figmadata 
+#D download figma api data to the project root
+
+function exists {
+  EXISTS="true"
+  rm -rf ./figma/tmp-error
+  cat ./figma/DATA | figmafind -t FRAME -n $1 2> ./figma/tmp-error 1> /dev/null
+  if [ ! -z "$(< ./figma/tmp-error)" ]; then
+    EXISTS="false"
+  fi
+}
+
+mkdir ./figma 2> /dev/null
+rm -rf ./figma/*
+
+figmafetch -i $1 > ./figma/DATA
+
+exists CANVAS Mobile
+if [ "$EXISTS" == "true" ]; then
+  cat ./figma/DATA | figmafind -t CANVAS -n Mobile > ./figma/MOBILE
+fi
+
+exists CANVAS Desktop 
+if [ "$EXISTS" == "true" ]; then
+  cat ./figma/DATA | figmafind -t CANVAS -n Desktop > ./figma/DESKTOP
+fi

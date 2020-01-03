@@ -1,7 +1,9 @@
 #!/usr/bin/bash
 
+#D figma2cssgenerate
+#D based on figmaconfig uses percol to make the user chooses the page 
+#D to be generated
 
-# run figmaconfig with percol menu to choose the page
 TPAGE=""
 if [ -z $1 ]; then
   TPAGE=$(cat ./figmaconfig | percol) 
@@ -18,7 +20,8 @@ for i in "${IDS[@]}"; do
     FILE_PATH=$(echo $i | awk '// {print $3}')
     ID=$(echo $i | awk '// {print $2}')
     echo "File Id ---> "$ID
-    ./figmadata $ID
+    echo "Destination path ---> "$FILE_PATH
+    figmadata $ID
     rm -rf ./tmp.scss
     cat ./figma/DATA | figmafind -t COMPONENT -n page-layout | figmafind -t GROUP -n Common | figma2css >> ./tmp.scss
     echo "Common -> $FILE_PATH"
@@ -29,10 +32,11 @@ for i in "${IDS[@]}"; do
     CPAGES=($CPAGES)
     for i in "${CPAGES[@]}"; do
       CITEM=$(echo $i | tr -d '[:space:]')
-      #cat ./figma/DATA | figmafind -t COMPONENT -n page-layout | figmafind -t GROUP -n Content | figmafind -t GROUP -n $CITEM | figma2css >> ./tmp.scss
+      cat ./figma/DATA | figmafind -t COMPONENT -n page-layout | figmafind -t GROUP -n Content | figmafind -t GROUP -n $CITEM | figma2css >> ./tmp.scss
       echo "$CITEM -> $FILE_PATH"
     done
   fi
 done
 
-#cat ./tmp.scss > $FILE_PATH
+cat ./tmp.scss > $FILE_PATH
+rm -rf ./tmp.scss

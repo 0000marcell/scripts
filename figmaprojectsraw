@@ -1,5 +1,8 @@
 #!/usr/bin/bash
 
+#D figmaprojectsraw
+#D grab project informatoin from figma api pages on the figma token and figma team
+
 JPROJECTS=$(curl -s -H "X-FIGMA-TOKEN: $FIGMA_TOKEN" "https://api.figma.com/v1/teams/$FIGMA_TEAM/projects" | parseJSON)
 CIDS=$(echo "$JPROJECTS" | grep -i '"id"' | sed 's/\<id\>//g' | tr -d '"' | tr -d ':' | tr -d ' ' | tr -d ',')
 CNAMES=$(echo "$JPROJECTS" | grep -i name | sed 's/\<name\>//g' | tr -d '"' | tr -d ':' | tr -d ' ' | tr -d ',')

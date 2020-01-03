@@ -1,4 +1,6 @@
 #!/usr/bin/bash
+#D figma
+#D open the browser and search in figma 
 
 if [ -z $2 ]; then
   google-chrome-stable https://www.figma.com/files/search/$1

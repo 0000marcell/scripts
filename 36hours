@@ -1,3 +1,6 @@
 #!/usr/bin/bash
 
+#D 36 hours
+#D open 36 hours program
+
 chromeapp https://0000marcell.github.io/p36-hours/#/clock 

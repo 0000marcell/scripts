@@ -1,0 +1,6 @@
+#!/usr/bin/bash
+
+#D writedoc
+#D grabs the doc pattern inside the scripts and output to the read.me
+
+grep -h '\#D' ./* | tr -d '#D' > $s/README.md

@@ -1,0 +1,8 @@
+#!/usr/bin/bash
+
+if [ -z "$1" ]; then
+  echo "you need to pass the name of the html file"
+  exit 0
+fi
+
+cat $1 | grep class | awk -F "[\"\"]" '{print $2}' | sed 's/ /\./g' | sed 's/^/\./' | sed 's/$/ {}/g' | sort -u

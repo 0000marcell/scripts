@@ -1,5 +1,9 @@
 #!/usr/bin/bash
 
+#D figmafiles
+#D make the user choose a figma file with percol
+#D and outputs the file name
+
 SPROJECT=$(figmaprojectsraw | percol)
 SPROJECT=$(echo $SPROJECT | awk '// { print $2 }')
 SRESULT=$(figmafilesraw $SPROJECT | percol)
