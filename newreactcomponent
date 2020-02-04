@@ -1,0 +1,18 @@
+#!/usr/bin/bash
+# $1 name of the file 
+
+if [[ -z "$1" ]]; then
+  echo "you need to pass the name of the component"
+  exit 0
+fi
+
+echo -e "import React from 'react'; \
+\n \
+\nfunction $1(props) { \
+\n\treturn ( \
+\n\t\t<div> \
+\n\t\t</div> \
+\n\t); \
+\n} \
+\n \
+\nexport default $1;" > "./src/components/$1.js"

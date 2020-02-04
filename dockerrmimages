@@ -1,0 +1,3 @@
+#!/usr/bin/bash
+
+docker image ls | awk '// {print $3}' | xargs -i docker image rm -f {}

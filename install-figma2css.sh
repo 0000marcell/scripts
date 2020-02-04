@@ -10,6 +10,7 @@ echo 'export PATH="$PATH:$HOME/scripts"' >> ~/.bashrc
 source ~/.bashrc
 sudo npm i -g figma2css figmafetch figmaprint figmafind findinjson
 CVART=(figma2cssgenerate figma2cssinstall figma2cssopen figmadata figmafiles figmafilesraw figmaopen figmaprojectsraw)
+CBASHPATH=$(which bash)
 for i in "${CVART[@]}"; do 
   echo "Installing "$i" ---> ~/scripts/"$i
   curl -s https://raw.githubusercontent.com/0000marcell/scripts/master/$i > ~/scripts/$i
